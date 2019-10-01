@@ -1,35 +1,35 @@
-# cli-packages
+# all-the-clis
 
-Names of all npm packages that have a command-line interface. Sorted by download count, descending.
+Collects all of the command line executables available from npm packages. Each CLI name links to a list of packages which provide that executable.
 
 ## Installation
 
 ```sh
-yarn add cli-packages
+yarn add all-the-clis
 ```
 
 ## Usage
 
 ```js
-const names = require('cli-packages')
+const clis = require('all-the-clis')
 
-names.length
-// 47663
+Object.keys(clis).length
+// 105340
 
-names.slice(0, 10)
+clis['html-beautify']
 // [
-//   'mkdirp',
-//   'semver',
-//   'rimraf',
-//   'esprima',
-//   'mime',
-//   'window-size',
-//   'acorn',
-//   'uglify-js',
-//   'nopt',
-//   'js-yaml'
+//   '@bmewburn/js-beautify'
+//   'beautify-less',
+//   'js-beautify',
+//   'js-beautify-ejsx',
+//   'js-beautify-nahid',
+//   'js-beautify2',
+//   'js-prettify',
+//   'sublime-beautify',
 // ]
 ```
+
+As you can see, the cmdline executable `html-beautify` is provided by many packages. (But there is actually no package called html-beautify!)
 
 ## Tests
 

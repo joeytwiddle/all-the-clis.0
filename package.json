@@ -1,10 +1,11 @@
 {
-  "name": "cli-packages",
-  "version": "1.0.1",
-  "description": "Names of all npm packages that have a command-line interface. Sorted by download count, descending.",
+  "name": "all-the-clis",
+  "version": "1.0.0",
+  "description": "Collects all of the command line executables available from npm packages. Each CLI name links to a list of packages which provide that executable.",
   "main": "index.js",
-  "repository": "https://github.com/nice-registry/cli-packages",
+  "repository": "https://github.com/nice-registry/all-the-clis",
   "author": "Zeke Sikelianos <zeke@sikelianos.com>",
+  "contributors": "Paul \"Joey\" Clark <joeytwiddle@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "node scripts/build.js > index.json",
@@ -14,7 +15,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "download-counts": "^1.19.0",
-    "lodash": "^4.17.4",
     "mocha": "^3.2.0",
     "ora": "^1.1.0",
     "package-stream": "^2.0.0",
