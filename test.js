@@ -1,14 +1,19 @@
 const describe = require('mocha').describe
 const it = require('mocha').it
 const expect = require('chai').expect
-const names = require('.')
+const clis = require('.')
 
-describe('repos', () => {
-  it('is an array with lots of names', () => {
-    expect(names.length).to.be.above(47 * 1000)
+describe('clis', () => {
+  it('is an object with lots of keys', () => {
+    expect(Object.keys(clis).length).to.be.above(5 * 1000)
   })
 
   it('includes some well-known command-line tools', () => {
-    expect(names.indexOf('mocha')).to.be.below(100)
+    expect(clis.mocha).to.include('mocha')
+  })
+
+  // The package js-beautify bundles CLIs html-beautify and css-beautify for convenience
+  it('can detect clis in packages with other names', () => {
+    expect(clis['html-beautify']).to.include('js-beautify')
   })
 })
