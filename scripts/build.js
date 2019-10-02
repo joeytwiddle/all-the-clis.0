@@ -10,7 +10,12 @@ registry
   .on('package', function (pkg) {
     spinner.text = String(++totalPackages)
     if (pkg && pkg.bin) {
-      Object.keys(pkg.bin).forEach(cli => {
+      var bins =
+          Array.isArray(pkg.bin) ? []
+        : typeof pkg.bin === 'object' ? Object.keys(pkg.bin)
+        : typeof pkg.bin === 'string' ? [ pkg.name ]
+        : []
+      bins.forEach(cli => {
         clis[cli] = clis[cli] || []
         clis[cli].push(pkg.name)
       })
