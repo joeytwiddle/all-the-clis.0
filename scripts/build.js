@@ -23,6 +23,16 @@ registry
     }
   })
   .on('up-to-date', function () {
-    process.stdout.write(JSON.stringify(clis, null, 2))
+    process.stdout.write(JSON.stringify(sortClis(clis), null, 2))
     process.exit()
   })
+
+// This isn't strictly necessary, but it helps to reduce diff sizes
+function sortClis (clis) {
+  var sortedClis = {}
+  var sortedCliNames = Object.keys(clis).sort()
+  sortedCliNames.forEach(cli => {
+    sortedClis[cli] = clis[cli].sort()
+  })
+  return sortedClis
+}
