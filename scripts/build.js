@@ -16,6 +16,7 @@ registry
         : typeof pkg.bin === 'string' ? [ pkg.name ]
         : []
       bins.forEach(cli => {
+        if (!cli) return
         clis[cli] = clis[cli] || []
         clis[cli].push(pkg.name)
       })
